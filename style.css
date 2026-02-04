@@ -881,3 +881,190 @@ body::after {
     right: auto !important;
     transform: translateX(-50%) !important;
 }
+
+/* --- PROJECT PAGE STYLES --- */
+/* Banner Image (Sits on the right of the Hero Banner) */
+.project-banner-img {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    /* Make it pop out slightly like the home animation */
+    margin-right: -10%;
+    mask-image: linear-gradient(to left, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to left, black 80%, transparent 100%);
+}
+
+.project-banner-img img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    opacity: 0.8;
+    border-radius: 20px;
+}
+
+/* Stats Bar */
+.stats-bar {
+    display: flex;
+    justify-content: space-around;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 25px 0;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.stat-item {
+    text-align: center;
+    min-width: 100px;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.stat-pill {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 50px;
+    /* Pill shape */
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    /* Default Cyan Theme */
+    background: rgba(0, 198, 255, 0.1);
+    border: 1px solid rgba(0, 198, 255, 0.5);
+    color: #00c6ff;
+    box-shadow: 0 0 10px rgba(0, 198, 255, 0.1);
+}
+
+/* Content Padding Wrapper */
+.project-body {
+    padding: 0;
+    /* padding handled by home-section classes */
+}
+
+/* Split Layouts (Image + Text) */
+.split-layout {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin: 40px 0;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.split-layout.reverse {
+    flex-direction: row-reverse;
+    /* Flip order */
+}
+
+.split-img {
+    width: 45%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.split-img.tech-img {
+    height: auto !important;
+    /* Let the image decide its own height */
+    max-height: 400px;
+    /* Stop it from getting too huge */
+    object-fit: contain;
+    /* Ensure 100% of the image is visible */
+    background: rgba(255, 255, 255, 0.02);
+    /* Subtle backing for transparent PNGs */
+}
+
+.split-text {
+    flex: 1;
+}
+
+.split-text h4 {
+    color: #fff;
+    margin-top: 0;
+    font-size: 1.4rem;
+    border-left: 3px solid #00c6ff;
+    padding-left: 15px;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+    border-color: #00c6ff;
+    z-index: 5;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .hero-banner {
+        flex-direction: column;
+        height: auto;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .hero-text {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .project-banner-img {
+        width: 100%;
+        margin-right: 0;
+        height: 200px;
+        mask-image: none;
+        /* Remove fade on mobile */
+    }
+
+    .project-banner-img img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+
+    .split-layout,
+    .split-layout.reverse {
+        flex-direction: column;
+    }
+
+    .split-img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .stats-bar {
+        justify-content: flex-start;
+        padding-left: 20px;
+        overflow-x: auto;
+    }
+}

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Project: Thesis</title>
+    <title>Project: Thesis | Bríain Doyle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,18 +15,127 @@
         <a href="projects.html">Projects</a>
     </nav>
 
-    <div class="container">
-        <h1>High-Speed PCR on a Lab-on-a-Disc</h1>
-        <img src="https://placehold.co/600x400" alt="Project Screenshot"
-            style="width: 100%; max-width: 600px; margin: 20px 0;">
+    <div class="container" style="padding: 0; overflow: hidden;">
 
-        <h3>Overview</h3>
-        <p>I am currently completing my thesis as part of my Masters in Mechatronic Engineering...</p>
+        <div class="hero-banner" style="padding: 0 7%;">
 
-        <h3>Tool Kit</h3>
-        <p>SolidWorks, KiCad, Excel, MATLAB, C++, Thermodynamics, Microfluidics, 3D Printing, Soldering...</p>
+            <div class="hero-text">
+                <h1 style="font-size: 3.2rem;">High-Speed PCR</h1>
+                <p style="font-size: 1.2rem;">Accelerating DNA analysis with Lab-on-a-Disc technology.</p>
+            </div>
 
-        <a href="projects.html">← Back to Projects</a>
+            <div class="project-banner-img">
+                <img src="images/thesis_banner.jpg" alt="Project Header">
+            </div>
+
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-label">Type</span>
+                <span class="stat-pill">Masters Thesis</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Timeline</span>
+                <span class="stat-pill">2025 - Present</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Role</span>
+                <span class="stat-pill">Lead Researcher</span>
+            </div>
+        </div>
+
+        <div class="project-body">
+
+            <div class="home-section">
+                <h3>The Mission</h3>
+                <p>The goal is to create a proof of concept for high-speed Polymerase Chain Reaction (PCR) on the
+                    Lab-on-a-Disc (LoaD) architecture.</p>
+                <ul>
+                    <li><strong>Continuous Flow:</strong> Remove the need for thermal ramping by utilising the
+                        centrifugal forces from spinning the disc to precisely move the sample through fixed thermal
+                        zones.</li>
+                    <li><strong>PoC Optimisation:</strong> Design for Point of Care, constraining the system to a ~10W
+                        power draw and a portable footprint.</li>
+                </ul>
+            </div>
+
+            <div class="home-section">
+                <h3>Design & Iteration</h3>
+
+                <div class="split-layout">
+                    <img src="images/Disc.jpg" alt="DIsc Design" class="split-img tech-img">
+                    <div class="split-text">
+                        <h4>Microfluidic Disc Design</h4>
+                        <p>I engineered and fabricated multi-layer microfluidic discs using laser-cut PMMA and PSA. By
+                            designing serpentine channels within the PSA layers, they were confined to a height of 86µm,
+                            allowing for a high surface area to volume ratio. The serpentine channels spanned the disc
+                            radially to allow for the centrifugal forces to aid in moving the sample through the
+                            channels and to ensure the sample entered the two fixed thermal zones every cycle.</p>
+                    </div>
+                </div>
+
+                <div class="split-layout reverse">
+                    <img src="images/Assembly.jpg" alt="Heater Placement" class="split-img tech-img">
+                    <div class="split-text">
+                        <h4>Heating Elements Construction</h4>
+                        <p>I designed and assembled a dual-sided heating system featuring four ring shaped thermal zones
+                            to ensure uniform temperature distribution across the multi-layered disc. By incorporating
+                            wound NiCr wire with anodised aluminium heat spreaders, I achieved stable denaturation
+                            (95°C) and annealing/extension (60°C) zones through power efficient Joule heating. This
+                            fixed-temperature configuration removes the high-power requirements from rapid thermal
+                            cycling utilised in standard “Time Domain” PCR, while capitalising on the centrifugal forces
+                            of the spinning disc.</p>
+                    </div>
+                </div>
+
+                <div class="split-layout">
+                    <img src="images/wire_length_chart.jpg" alt="Example Chart" class="split-img tech-img">
+                    <div class="split-text">
+                        <h4>Automated Calculations</h4>
+                        <p>To manage the high precision required for microfluidics, I developed a comprehensive
+                            mathematical model in Excel to automate the calculation of volumetric flow rates, fluid
+                            residency times, and multi-modal thermal power losses. This tool enabled real-time analysis
+                            of the "knock-on" effects caused by adjusting rotational frequency or channel geometry,
+                            ensuring the system remained within the strict power budget.</p>
+                    </div>
+                </div>
+
+                <div class="split-layout reverse">
+                    <img src="images/RELOAD Hat.jpg" alt="PCB Design" class="split-img tech-img">
+                    <div class="split-text">
+                        <h4>Electronics Integration</h4>
+                        <p>I designed and fabricated a custom PCB "hat" to interface with the ESP-S3 on DCU’s ReLoaD
+                            wireless power platform, enabling the integration of control electronics directly onto the
+                            rotating disc. The board features a high-efficiency buck converter to manage power
+                            distribution for the heaters, alongside signal conditioning circuitry, including low-pass
+                            filters and voltage dividers, for precise thermistor-based temperature sensing. By
+                            implementing PWM controlled power transistors, I can achieve the closed-loop PID control
+                            necessary to maintain stable thermal zones within the system's strict wireless power budget.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="home-section">
+                <h3>The Toolkit</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">SolidWorks</span>
+                    <span class="skill-tag">KiCad</span>
+                    <span class="skill-tag">MATLAB</span>
+                    <span class="skill-tag">Excel</span>
+                    <span class="skill-tag">Thermodynamics</span>
+                    <span class="skill-tag">Microfluidics</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">Design for manufacture</span>
+                </div>
+
+                <br></br>
+                <a href="projects.html" style="text-decoration: none;">← Back to Projects</a>
+            </div>
+
+        </div>
+
     </div>
 
 </body>
