@@ -91,6 +91,19 @@ nav a:hover {
     width: 90%;
 }
 
+/* Styling for links */
+.container a {
+    color: #00c6ff;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.container a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(0, 198, 255, 0.6);
+}
+
 /* Custom Style for Home Page */
 .home-container {
     text-align: center;
