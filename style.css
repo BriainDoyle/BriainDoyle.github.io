@@ -1002,6 +1002,11 @@ body::after {
     padding-left: 15px;
 }
 
+.split-text p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
 /* Gallery Grid */
 .gallery-grid {
     display: grid;

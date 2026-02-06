@@ -49,10 +49,12 @@
 
             <div class="home-section">
                 <h3>The Mission</h3>
-                <p>Create a custom FPV quadcopter from the ground up...</p>
+                <p>Design and develop a 3D-printed FPV micro-drone based on the 3.3V Arduino Pro Mini.</p>
                 <ul>
-                    <li><strong>CAD:</strong> ...</li>
-                    <li><strong>Software:</strong> ...</li>
+                    <li><strong>Hardware:</strong> A minimalist, easy-to-assemble PCB integrating MPU6050 stabilization
+                        and NRF24L01 telemetry with a 3D printed frame</li>
+                    <li><strong>Software:</strong> A custom coded control suite and communication protocol designed for
+                        immediate deployment and stability.</li>
                 </ul>
             </div>
 
@@ -62,19 +64,30 @@
                 <div class="split-layout">
                     <img src="https://placehold.co/600x400" alt="DIsc Design" class="split-img tech-img">
                     <div class="split-text">
-                        <h4>...</h4>
-                        <p>...</p>
+                        <h4>Circuit Design</h4>
+                        <p>I designed a dual sided PCB to integrate the Arduino Pro Mini and peripheral modules into a
+                            compact, weight optimised system. Mirroring the MPU-6050 and Arduino enabled direct pin
+                            mating, which minimised I2C trace lengths and improved signal integrity. To reduce component
+                            count and mass, the NRF24L01 is powered via the MPU’s onboard LDO regulator. The motor
+                            drivers are isolated at the board’s periphery to prevent high frequency switching noise from
+                            contaminating the IMU’s sensitive data.</p>
                     </div>
                 </div>
 
                 <div class="split-layout reverse">
                     <img src="https://placehold.co/600x400" alt="Heater Placement" class="split-img tech-img">
                     <div class="split-text">
-                        <h4>...</h4>
-                        <p>...</p>
+                        <h4>Chassis Composition</h4>
+                        <p>The chassis features a modular three-part assembly, base frame, PCB mount, and camera mount,
+                            optimised for FDM 3D printing and secured via M2 fasteners with threaded brass inserts. An
+                            inverted “press-fit” motor configuration enables an integrated propeller guard, providing a
+                            protective landing base that isolates the motors from ground impact during indoor flight. To
+                            ensure component clearance and facilitate thermal dissipation, the PCB is elevated from the
+                            baseplate, while the camera is secured within a dual-plate sandwich mount to maintain a
+                            balanced centre of gravity and structural rigidity.</p>
                     </div>
                 </div>
-
+            </div>
             <div class="home-section">
                 <h3>The Toolkit</h3>
                 <div class="skills-list">
@@ -82,10 +95,32 @@
                     <span class="skill-tag">KiCad</span>
                     <span class="skill-tag">MATLAB</span>
                     <span class="skill-tag">C++</span>
-                    <span class="skill-tag">Design for manufacture</span>
+                    <span class="skill-tag">Design for Manufacture</span>
+                    <span class="skill-tag">3D Printing</span>
+                </div>
+            </div>
+
+            <div class="home-section">
+                <h3>Next Steps</h3>
+                <p>The drone has been successfully assembled, but successful flight requires more than a sound design.
+                    The immediate roadmap focuses on the control theory.</p>
+                <ul>
+                    <li><strong>PID Tuning:</strong> I am modelling the quadcopter’s system dynamics in MATLAB to derive
+                        optimal PID coefficients.</li>
+                    <li><strong>Communications:</strong> I am refining the NRF24L01 communication stack to establish a
+                        low latency telemetry link between the flight controller and the control interface.</li>
+                </ul>
+            </div>
+
+            <div class="home-section">
+                <h3>Gallery</h3>
+                <div class="gallery-grid">
+                    <img src="https://placehold.co/400x300" alt="Drone Assembly">
+                    <img src="https://placehold.co/400x300" alt="Soldering the PCB">
+                    <img src="https://placehold.co/400x300" alt="First Flight">
                 </div>
 
-                <br></br>
+                <br><br>
                 <a href="projects.html" style="text-decoration: none;">← Back to Projects</a>
             </div>
 
