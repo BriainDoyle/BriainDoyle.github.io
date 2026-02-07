@@ -1142,4 +1142,8 @@ body::after {
         padding-left: 20px;
         overflow-x: auto;
     }
+
+    .split-text p {
+        text-align: left;
+    }
 }
