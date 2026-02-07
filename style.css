@@ -1007,26 +1007,120 @@ body::after {
     text-justify: inter-word;
 }
 
-/* Gallery Grid */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+/* --- SCROLLING GALLERY STRIP --- */
+.gallery-strip {
+    display: flex;
     gap: 15px;
+    overflow-x: auto;               /* Enables horizontal scroll */
+    scroll-snap-type: x mandatory;  /* Forces images to snap into place */
+    padding-bottom: 15px;           /* Space for the scrollbar */
+    margin: 30px 0;
+    scrollbar-width: thin;
+    scrollbar-color: #00c6ff #111;
 }
 
-.gallery-grid img {
-    width: 100%;
+.gallery-strip img {
+    flex: 0 0 40%;              
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
-    transition: transform 0.3s;
+    scroll-snap-align: center;   /* Image snaps to center of view */
+    cursor: zoom-in;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.2s;
 }
 
-.gallery-grid img:hover {
-    transform: scale(1.05);
+.gallery-strip img:hover {
+    transform: scale(1.02);
     border-color: #00c6ff;
-    z-index: 5;
+}
+
+/* --- LIGHTBOX (Full Screen View) --- */
+.lightbox {
+    display: none;               /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95); /* Dark overlay */
+    z-index: 1000;               /* Sit on top of everything */
+    
+    /* Layout for the full-screen scroller */
+    align-items: center;
+    justify-content: flex-start; /* Aligns images in a row */
+}
+
+.lightbox-content {
+    display: flex;
+    width: 100%;
+    height: 80%;
+    overflow-x: auto;           /* Scrollable horizontally */
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding: 0 5%;              /* Spacing on sides */
+}
+
+.lightbox-content img {
+    flex: 0 0 100%;             /* Each image takes full width */
+    height: 100%;
+    object-fit: contain;        /* Show full image without cropping */
+    scroll-snap-align: center;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* --- LIGHTBOX ARROWS --- */
+.lightbox-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.5); /* Translucent by default */
+    cursor: pointer;
+    z-index: 1002; /* Sit above the image */
+    padding: 20px;
+    user-select: none; /* Prevents highlighting the arrow text */
+    transition: all 0.3s ease;
+    text-decoration: none !important; 
+}
+
+.lightbox-arrow:hover {
+    color: #00c6ff; /* Cyan glow on hover */
+    background: rgba(0, 0, 0, 0.2); /* Slight dark backing on hover */
+    border-radius: 5px;
+}
+
+.lightbox-arrow.left {
+    left: 10px;
+}
+
+.lightbox-arrow.right {
+    right: 10px;
+}
+
+/* Optional: Hide scrollbar in lightbox to force arrow usage (cleaner look) */
+.lightbox-content {
+    scrollbar-width: none;  /* Firefox */
+}
+.lightbox-content::-webkit-scrollbar {
+    display: none;  /* Chrome/Safari */
+}
+
+/* Mobile Tweak: Show 1.5 images on phones */
+@media (max-width: 768px) {
+    .gallery-strip img {
+        flex: 0 0 75%; 
+    }
 }
 
 /* Mobile Adjustments */

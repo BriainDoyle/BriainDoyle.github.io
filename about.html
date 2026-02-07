@@ -55,7 +55,119 @@
 
         <h3>Resume</h3>
         <p>For more information, feel free to <a href="Briain_Doyle_CV.pdf" target="_blank">download my CV here!</a></p>
+
+        <div class="gallery-strip">
+            <img src="images/gallery_about/1C93C862-BD2C-4CD7-80FC-0D43025F616A.JPG" alt="SD Zoo" onclick="openLightbox(0)">
+            <img src="images/gallery_about/1420cd04-cf2b-4d40-927b-b24f2d608eb0.JPG" alt="Yosemite" onclick="openLightbox(0)">
+            <img src="images/gallery_about/e7ab9a87-dd4a-4919-9048-aa4f161dcb17.jpg" alt="Lake Tahoe" onclick="openLightbox(0)">
+            <img src="images/gallery_about/IMG_0001.jpeg" alt="Santa Monica Pier" onclick="openLightbox(0)">
+            <img src="images/gallery_about/IMG_0318.jpeg" alt="San Francisco" onclick="openLightbox(0)">
+            <img src="images/gallery_about/IMG_0360.jpeg" alt="Alcetraz" onclick="openLightbox(0)">
+            <img src="images/gallery_about/IMG_0423.jpeg" alt="Golden Gate Bridge" onclick="openLightbox(0)">
+            <img src="images/gallery_about/IMG_9115.jpg" alt="Parague" onclick="openLightbox(0)">
+            <img src="images/gallery_about/P1100989.jpg" alt="Shelter Island" onclick="openLightbox(0)">
+            <img src="images/gallery_about/P1110327.jpg" alt="Lake Tahoe" onclick="openLightbox(0)">
+            <img src="images/gallery_about/P1110485.jpg" alt="Discovery" onclick="openLightbox(0)">
+            <img src="images/gallery_about/P1110503.jpg" alt="Fighterjet Maintenance" onclick="openLightbox(0)">
+            <img src="images/gallery_about/P1110604.jpg" alt="Statue of Liberty" onclick="openLightbox(0)">
+            <img src="images/gallery_about/P1110610.jpg" alt="Wall Street Church" onclick="openLightbox(0)">
+            <img src="images/gallery_about/P1110613.jpg" alt="Manhattan Skyline" onclick="openLightbox(0)">
+            <img src="images/gallery_about/P1110623.jpg" alt="Empire State View" onclick="openLightbox(0)">
+            <img src="images/gallery_about/P1120181.jpg" alt="Edinbrugh Castle" onclick="openLightbox(0)">
+            <img src="images/gallery_about/P1120244.jpg" alt="Edinbrugh City" onclick="openLightbox(0)">
+        </div>
+
+        <div id="lightbox" class="lightbox">
+            <span class="close-btn" onclick="closeLightbox()">&times;</span>
+            
+            <a class="lightbox-arrow left" onclick="changeImage(-1)">&#10094;</a>
+            <a class="lightbox-arrow right" onclick="changeImage(1)">&#10095;</a>
+
+            <div class="lightbox-content" id="lightbox-scroller">
+                <img src="images/gallery_about/1C93C862-BD2C-4CD7-80FC-0D43025F616A.JPG" alt="SD Zoo">
+                <img src="images/gallery_about/1420cd04-cf2b-4d40-927b-b24f2d608eb0.JPG" alt="Yosemite">
+                <img src="images/gallery_about/e7ab9a87-dd4a-4919-9048-aa4f161dcb17.jpg" alt="Lake Tahoe">
+                <img src="images/gallery_about/IMG_0001.jpeg" alt="Santa Monica Pier">
+                <img src="images/gallery_about/IMG_0318.jpeg" alt="San Francisco">
+                <img src="images/gallery_about/IMG_0360.jpeg" alt="Alcetraz">
+                <img src="images/gallery_about/IMG_0423.jpeg" alt="Golden Gate Bridge">
+                <img src="images/gallery_about/IMG_9115.jpg" alt="Parague">
+                <img src="images/gallery_about/P1100989.jpg" alt="Shelter Island"">
+                <img src="images/gallery_about/P1110327.jpg" alt="Lake Tahoe">
+                <img src="images/gallery_about/P1110485.jpg" alt="Discovery">
+                <img src="images/gallery_about/P1110503.jpg" alt="Fighterjet Maintenance">
+                <img src="images/gallery_about/P1110604.jpg" alt="Statue of Liberty">
+                <img src="images/gallery_about/P1110610.jpg" alt="Wall Street Church">
+                <img src="images/gallery_about/P1110613.jpg" alt="Manhattan Skyline">
+                <img src="images/gallery_about/P1110623.jpg" alt="Empire State View">
+                <img src="images/gallery_about/P1120181.jpg" alt="Edinbrugh Castle">
+                <img src="images/gallery_about/P1120244.jpg" alt="Edinbrugh City">
+            </div>
+
+        </div>
+
     </div>
+
+    <script>
+        // Track the current image index
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            const lightbox = document.getElementById('lightbox');
+            const scroller = document.getElementById('lightbox-scroller');
+            const images = scroller.getElementsByTagName('img');
+            
+            currentIndex = index; // Update tracker
+            
+            lightbox.style.display = 'flex';
+            
+            // Scroll to specific image immediately
+            if (images[currentIndex]) {
+                images[currentIndex].scrollIntoView({ inline: 'center' });
+            }
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // NEW: Function to handle arrow clicks
+        function changeImage(n) {
+            const scroller = document.getElementById('lightbox-scroller');
+            const images = scroller.getElementsByTagName('img');
+            
+            // Calculate new index
+            let newIndex = currentIndex + n;
+
+            // Loop back to start/end if we go out of bounds
+            if (newIndex >= images.length) {
+                newIndex = 0;
+            } else if (newIndex < 0) {
+                newIndex = images.length - 1;
+            }
+
+            currentIndex = newIndex; // Save the new position
+
+            // Smoothly scroll to the new image
+            images[currentIndex].scrollIntoView({ behavior: 'smooth', inline: 'center' });
+        }
+
+        // Close on outside click
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+        
+        // Keyboard Support (Left/Right Arrows + Escape)
+        document.addEventListener('keydown', function(e) {
+            if (document.getElementById('lightbox').style.display === 'flex') {
+                if (e.key === 'ArrowLeft') changeImage(-1);
+                if (e.key === 'ArrowRight') changeImage(1);
+                if (e.key === 'Escape') closeLightbox();
+            }
+        });
+    </script>
 
 </body>
 
