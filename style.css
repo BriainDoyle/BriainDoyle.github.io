@@ -218,20 +218,7 @@ p {
     /* Prevents text from becoming too long on wide screens */
 }
 
-/* --- Buttons --- */
-a[style*="background: #333"] {
-    background: linear-gradient(90deg, #0088ff 0%, #00c6ff 100%) !important;
-    color: white !important;
-    border: none;
-    font-weight: bold;
-    box-shadow: 0 4px 15px rgba(0, 136, 255, 0.4);
-    padding: 12px 25px !important;
-    border-radius: 50px !important;
-    /* Pill shaped buttons */
-}
-
 /* --- MOBILE & RESPONSIVE DESIGN --- */
-
 /* Triggers when screen is smaller than 768px (Tablets & Phones) */
 @media (max-width: 768px) {
 
@@ -321,7 +308,7 @@ a[style*="background: #333"] {
         width: 100%;
     }
 
-    .profile_pic {
+    .profile-pic {
         float: none;
         display: block;
         margin: 0 auto 30px;
@@ -806,16 +793,6 @@ body::after {
     /* Move to the tip */
 }
 
-/* The Text Reacher */
-.trace-l-text {
-    height: 2px;
-    right: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    animation: drawH 1.2s linear forwards 0.5s;
-    --w: 22vw;
-}
-
 /* Define the PCB Animations */
 @keyframes drawV {
     from {
@@ -864,8 +841,7 @@ body::after {
 
 .trace-l-short .via,
 .trace-l-med .via,
-.trace-l-long .via,
-.trace-l-text .via {
+.trace-l-long .via {
     top: -3px !important;
     bottom: auto !important;
     right: auto !important;
